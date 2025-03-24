@@ -100,7 +100,7 @@ function App() {
                 category: "Mobile Development"
               },
               {
-                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+                image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
                 title: "Restaurant Booking System",
                 category: "Web Application"
               }
@@ -135,11 +135,11 @@ function App() {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Phone className="h-6 w-6 text-yellow-400 mr-3" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+1 (518) 900-7224</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-6 w-6 text-yellow-400 mr-3" />
-                  <span>contact@busybee.design</span>
+                  <span>admin@busy-bee-design.com</span>
                 </div>
               </div>
             </div>
@@ -215,7 +215,7 @@ function App() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 BusyBee Web Design. All rights reserved.</p>
+            <p>&copy; 2025 BusyBee Web Design. All rights reserved.</p>
           </div>
         </div>
       </footer>
