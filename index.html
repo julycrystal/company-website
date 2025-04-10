@@ -1,13 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BusyBee Web Design</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+        
+        .toggles {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+            width: fit-content;
+            margin: 0 auto 50px;
+        }
+        
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .toggle {
+            position: relative;
+            width: 80px;
+            height: 40px;
+            background-color: #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle.active {
+            background-color: #4cd964;
+        }
+        
+        .toggle.active.fast {
+            background-color: #ff5b5b;
+        }
+        
+        .toggle.active.good {
+            background-color: #4cd964;
+        }
+        
+        .toggle.active.cheap {
+            background-color: #9c9c9c;
+        }
+        
+        .toggle.active::after {
+            transform: translateX(40px);
+        }
+        
+        .label {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100px;
+            text-align: left;
+        }
+        
+        .message {
+            font-size: 1.5rem;
+            margin: 40px 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+        
+        .message.visible {
+            opacity: 1;
+        }
+        
+        .contact {
+            margin-top: 60px;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 1.2rem;
+        }
+        
+        .contact p {
+            margin: 10px 0;
+        }
+        
+        .contact a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact a:hover {
+            color: #000;
+        }
+
+        @media (max-width: 600px) {
+            .toggles {
+                width: 90%;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Good, Fast, Cheap - Pick Three</h1>
+        
+        <div class="toggles">
+            <div class="toggle-row">
+                <div class="toggle active fast"></div>
+                <div class="label">Fast</div>
+            </div>
+            <div class="toggle-row">
+                <div class="toggle active good"></div>
+                <div class="label">Good</div>
+            </div>
+            <div class="toggle-row">
+                <div class="toggle active cheap"></div>
+                <div class="label">Cheap</div>
+            </div>
+        </div>
+        
+        <div class="message visible">
+            Yes, with us, you can have all three. That's what sets our consulting apart.
+        </div>
+        
+        <div class="contact">
+            <p>Ready to get started? Contact us:</p>
+            <p>Email: <a href="mailto:admin@busy-bee-design.com">admin@busy-bee-design.com</a></p>
+            <p>Phone: <a href="tel:+15189007224">(518) 900-7224</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggles = document.querySelectorAll('.toggle');
+            const message = document.querySelector('.message');
+            
+            // Make toggles interactive but always return to "on"
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    toggle.classList.remove('active');
+                    setTimeout(() => {
+                        message.classList.remove('visible');
+                    }, 1000);
+                    message.textContent = "Wait... with us, you don't have to choose.";
+                    
+                    // Return to "on" state after a delay
+                    setTimeout(() => {
+                        toggle.classList.add('active');
+                        message.textContent = "Yes, with us, you can have all three. That's what sets our consulting apart.";
+                        message.classList.add('visible');
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+</body>
 </html>
