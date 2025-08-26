@@ -567,7 +567,7 @@
                 if (entry.isIntersecting) {
                     const statNumbers = entry.target.querySelectorAll('.stat-item h3');
                     statNumbers.forEach((stat, index) => {
-                        const values = [200, 85, 30, 0];
+                        const values = [200, 100, 60, 0];
                         setTimeout(() => {
                             animateCounter(stat, values[index]);
                         }, index * 200);
